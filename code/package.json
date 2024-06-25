@@ -1,0 +1,13 @@
+{
+  "name": "controle-bse",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install": "npm install --prefix backend && npm install --prefix frontend",
+    "start": "npm run build --prefix frontend && npm run serve",
+    "serve": "concurrently \"npm run start --prefix backend\" \"npm run start --prefix frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^6.5.1"
+  }
+}
