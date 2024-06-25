@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function Navbar({ isDarkMode, toggleMode }) {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light menu">
+    <nav className="navbar navbar-expand-lg navbar-dark menu">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           <img src={logo} width="115px" height="26px" alt="Logo" />
