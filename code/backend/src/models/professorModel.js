@@ -1,4 +1,4 @@
-class ccr {
+class Professor {
   constructor(id, nome, telefone, email, endereco, username, senha) {
     this.id = id;
     this.nome = nome;
@@ -10,4 +10,4 @@ class ccr {
   }
 }
   
-module.exports = ccr;
+module.exports = Professor;

@@ -1,10 +1,10 @@
-class ccr {
+class Conteudo {
     constructor(id, nome, qtaulasprevistas, desc) {
         this.id = id;
         this.nome = nome;
         this.qtaulasprevistas = qtaulasprevistas;
-        this.desc = desc;
+        this.descr = descr;
     }
 }
   
-module.exports = ccr;
+module.exports = Conteudo;

@@ -1,4 +1,4 @@
-class ccr {
+class Nota {
   constructor(id, idaluno, idconteudo, nota, qtaulas, dataini, datafim) {
     this.id = id;
     this.idaluno = idaluno;
@@ -10,4 +10,4 @@ class ccr {
   }
 }
 
-module.exports = ccr;
+module.exports = Nota;

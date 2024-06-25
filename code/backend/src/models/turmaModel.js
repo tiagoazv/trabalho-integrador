@@ -1,4 +1,4 @@
-class ccr {
+class Turma {
     constructor(id, vagas, idprofessor, idconteudo, dia) {
       this.id = id;
       this.vagas = vagas;
@@ -8,4 +8,4 @@ class ccr {
     }
   }
   
-  module.exports = ccr;
+  module.exports = Turma;

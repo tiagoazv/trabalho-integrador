@@ -1,4 +1,4 @@
-class ccr {
+class Aluno {
   constructor(id, nome, telefone, email, endereco, datanasc, idturma) {
     this.id = id;
     this.nome = nome;
@@ -10,4 +10,4 @@ class ccr {
   }
 }
 
-module.exports = ccr;
+module.exports = Aluno;
