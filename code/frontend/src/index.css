@@ -13,6 +13,15 @@ body.dark {
   color: #cbc5c5;
 }
 
+body.dark .card-body{
+  background-color:#707070;
+  color:white
+}
+
+body.dark .card-body:hover{
+  background-color:#616161;
+}
+
 .menu{
   background-color: #363636;
 }
