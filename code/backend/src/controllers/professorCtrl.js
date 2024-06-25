@@ -28,8 +28,8 @@ exports.createProfessor = async (req, res) => {
     const { id, nome, telefone, email, endereco, username, senha } = req.body;
     logger.info("Create Body: " + JSON.stringify(req.body));
     const newProfessor = await db.one(
-      'INSERT INTO professor (id, nome, telefone, email, endereco, username, senha) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
-      [id, nome, telefone, email, endereco, username, senha]
+      'INSERT INTO professor (nome, telefone, email, endereco, username, senha) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+      [nome, telefone, email, endereco, username, senha]
     );
     res.json(newProfessor);
   } catch (error) {
@@ -42,7 +42,7 @@ exports.updateProfessor = async (req, res) => {
     const { id, nome, telefone, email, endereco, username, senha } = req.body;
     logger.info("Update Body: " + JSON.stringify(req.body));
     const updatedProfessor = await db.one(
-      'UPDATE professor SET nome = $1, telefone = $2, email = $3, endereco = $54, username = $5, senha = $6 WHERE id = $7 RETURNING *',
+      'UPDATE professor SET nome = $1, telefone = $2, email = $3, endereco = $4, username = $5, senha = $6 WHERE id = $7 RETURNING *',
       [nome, telefone, email, endereco, username, senha, req.params.id]
     );
     res.json(updatedProfessor);
