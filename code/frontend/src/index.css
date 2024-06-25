@@ -1,0 +1,93 @@
+body{
+  font-family:arial;
+  margin:0px;
+  padding:0px;
+}
+
+body.light {
+  background-color: white;
+}
+
+body.dark {
+  background-color: #424242;
+  color: #cbc5c5;
+}
+
+.menu{
+  background-color: #363636;
+}
+
+.navbar{
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin:0px;
+}
+
+.navbar-brand{
+  padding:10px;
+}
+.nav-item{
+  cursor: pointer;
+  font-size:18px;
+  padding: 5px;
+  margin:0px;
+}
+
+.nav-item:hover{
+  background-color: #28acff;
+}
+
+.navbar-nav .nav-link {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.custom-link {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.custom-link:hover{
+  color:#363636;
+}
+.custom-link:visited{
+  color:white;
+}
+
+li{
+  color:white;
+  font-weight:bold;
+}
+
+.card{
+  border:0px;
+}
+.card-body{
+  background-color:white;
+  border-radius:5px;
+  border:1px solid #363636;
+  transition: background-color 0.3s;
+}
+
+.card-body:hover{
+  cursor:pointer;
+  background-color: #ececec;
+  border:1px solid #363636;
+}
+.card-body span{
+  font-weight: bold;
+}
+
+.card-title{
+  color:#28acff;
+  font-weight: bold;
+}
+
+h1{
+  font-variant-caps: small-caps;
+  font-weight: bold;
+}
