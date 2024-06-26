@@ -3,7 +3,7 @@ const logger = require('../logger');
 
 exports.getTurma = async (req, res) => {
   try {
-    const turma = await db.any('SELECT * FROM turma');
+    const turma = await db.any('SELECT t.id, t.vagas, p.nome AS professor, c.nome AS conteudo, t.dia FROM turma t JOIN professor p ON t.idprofessor = p.id JOIN conteudo c ON t.idconteudo = c.id');
     res.json(turma);
   } catch (error) {
     res.status(500).send(error.message);
@@ -25,11 +25,17 @@ exports.getTurmaById = async (req, res) => {
 //id, vagas, idprofessor, idconteudo, dia
 exports.createTurma = async (req, res) => {
   try {
-    const { id, vagas, idprofessor, idconteudo, dia } = req.body;
+    const {vagas, idprofessor, idconteudo, dia } = req.body;
     logger.info("Create Body: " + JSON.stringify(req.body));
+    if(idprofessor===""){
+      res.status(500).send("Você precisar selecionar um professor.");
+    }
+    if(idconteudo===""){
+      res.status(500).send("Você precisar selecionar um conteúdo.");
+    }
     const newTurma = await db.one(
-      'INSERT INTO turma (id, vagas, idprofessor, idconteudo, dia) VALUES ($1, $2, $3, $4, $5) RETURNING *',
-      [id, vagas, idprofessor, idconteudo, dia]
+      'INSERT INTO turma (vagas, idprofessor, idconteudo, dia) VALUES ($1, $2, $3, $4) RETURNING *',
+      [vagas, idprofessor, idconteudo, dia]
     );
     res.json(newTurma);
   } catch (error) {

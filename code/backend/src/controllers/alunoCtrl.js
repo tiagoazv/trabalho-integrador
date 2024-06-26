@@ -25,11 +25,11 @@ exports.getAlunoById = async (req, res) => {
 //id, nome, telefone, email, endereco, datanasc, idturma
 exports.createAluno = async (req, res) => {
   try {
-    const { id, nome, telefone, email, endereco, datanasc, idturma } = req.body;
+    const {nome, telefone, email, endereco, datanasc, idturma } = req.body;
     logger.info("Create Body: " + JSON.stringify(req.body));
     const newAluno = await db.one(
-      'INSERT INTO aluno (id, nome, telefone, email, endereco, datanasc, idturma) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
-      [id, nome, telefone, email, endereco, datanasc, idturma]
+      'INSERT INTO aluno (nome, telefone, email, endereco, datanasc, idturma) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+      [nome, telefone, email, endereco, datanasc, idturma]
     );
     res.json(newAluno);
   } catch (error) {
@@ -39,10 +39,10 @@ exports.createAluno = async (req, res) => {
 
 exports.updateAluno = async (req, res) => {
   try {
-    const { id, nome, telefone, email, endereco, datanasc, idturma } = req.body;
+    const { nome, telefone, email, endereco, datanasc, idturma } = req.body;
     logger.info("Update Body: " + JSON.stringify(req.body));
     const updatedAluno = await db.one(
-      'UPDATE aluno SET nome = $1, telefone = $2, email = $3, endereco = $4, datanasc = $5, idturma = $6,  WHERE id = $4 RETURNING *',
+      'UPDATE aluno SET nome = $1, telefone = $2, email = $3, endereco = $4, datanasc = $5, idturma = $6  WHERE id = $7 RETURNING *',
       [ nome, telefone, email, endereco, datanasc, idturma, req.params.id]
     );
     res.json(updatedAluno);
