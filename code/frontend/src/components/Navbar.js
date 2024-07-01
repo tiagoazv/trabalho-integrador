@@ -1,9 +1,16 @@
 // components/Navbar.js
 import React from 'react';
 import logo from "../logo.png";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-function Navbar({ isDarkMode, toggleMode }) {
+function Navbar({ isDarkMode, toggleMode, isAuthenticated, onLogout }) {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    onLogout(false);
+    navigate('/login');
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark menu">
       <div className="container-fluid">
@@ -23,6 +30,8 @@ function Navbar({ isDarkMode, toggleMode }) {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav w-100">
+          {isAuthenticated ? (
+        <>
             <li className="nav-item">
               <Link className="nav-link custom-link" to="/aluno">Aluno</Link>
             </li>
@@ -43,6 +52,13 @@ function Navbar({ isDarkMode, toggleMode }) {
                 🌔 {!isDarkMode ? 'Modo Escuro' : 'Modo Claro'}
               </div>
             </li>
+            <li className="nav-item ms-auto">
+              <div className="nav-link custom-link" onClick={handleLogout}>Logout</div>
+            </li>
+            </>
+            ) : (
+              <Link className="nav-link custom-link" to="/login">Login</Link>
+            )}
           </ul>
         </div>
       </div>

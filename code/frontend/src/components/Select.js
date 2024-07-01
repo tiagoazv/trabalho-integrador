@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {getTurma} from '../services/turmaService';
 import {getProfessor} from '../services/professorService';
 import {getConteudo} from '../services/conteudoService';
-
+import {getAluno} from '../services/alunoService';
 const Select = ({formType, title, onChange, id, className}) => {
   const [options, setOptions] = useState([]);
 
@@ -16,6 +16,8 @@ const Select = ({formType, title, onChange, id, className}) => {
             data = await getConteudo();
           } else if (formType === "turma") {
             data = await getTurma();
+          } else if (formType === "aluno") {
+            data = await getAluno();
           }
           setOptions(data);
         } catch (error) {

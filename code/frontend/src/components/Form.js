@@ -162,7 +162,7 @@ const handleRegularSelectChange = (selectedOption, fieldName) => {
         </>
       )}
 
-      {formType === "aluno" && (
+{formType === "aluno" && (
         <>
         <div className="mb-3">
           <label htmlFor="aluno_nome" className="form-label">Selecione ou crie um aluno</label>
@@ -204,6 +204,55 @@ const handleRegularSelectChange = (selectedOption, fieldName) => {
             <label htmlFor="aluno_idturma" className="form-label">Turma atual</label>
             <Select formType="turma" title="Selecione a turma..." onChange={(e) => handleRegularSelectChange(e, 'aluno_idturma')} id="aluno_idturma" className="form-control"></Select>
           </div>
+        </>
+      )}{formType === "nota" && (
+        <>
+        <div className="mb-3">
+          <label htmlFor="nota_nome" className="form-label">Selecione ou crie um nota</label>
+            <CreatableSelect
+              isClearable
+              onChange={(selectedOption) => handleSelectChange(selectedOption, 'nota_nome')}
+              options={data}
+              id="nota_nome"
+              className="form-control"
+              value={selectedContent}
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="hidden"
+              className="form-control"
+              id="nota_id"
+              value={selectedContent && !selectedContent.__isNew__ ? selectedContent.value : 0}
+              onChange={onChange}
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="nota_idaluno" className="form-label">Aluno</label>
+            <Select formType="aluno" title="Selecione o aluno..." onChange={(e) => handleRegularSelectChange(e, 'nota_idaluno')} id="nota_idaluno" className="form-control"></Select>
+          </div>
+          <div className="mb-3">
+            <label htmlFor="nota_idconteudo" className="form-label">Conteúdo</label>
+            <Select formType="conteudo" title="Selecione o conteudo..." onChange={(e) => handleRegularSelectChange(e, 'nota_idconteudo')} id="nota_idconteudo" className="form-control"></Select>
+          </div>
+          <div className="mb-3">
+            <label htmlFor="nota_nota" className="form-label">Nota</label>
+            <input type="number" className="form-control" id="nota_nota" onChange={onChange} />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="nota_qtaulas" className="form-label">Quantia de Aulas</label>
+            <input type="number" className="form-control" id="nota_qtaulas" onChange={onChange} />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="nota_dataini" className="form-label">Data de Início</label>
+            <input type="date" className="form-control" id="nota_dataini" onChange={onChange} />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="nota_datafim" className="form-label">Data de Fim</label>
+            <input type="date" className="form-control" id="nota_datafim" onChange={onChange} />
+          </div>
+
+          
         </>
       )}
     </form>
