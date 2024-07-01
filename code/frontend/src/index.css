@@ -100,3 +100,13 @@ h1{
   font-variant-caps: small-caps;
   font-weight: bold;
 }
+
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 400px;
+}
+
+.form-group{
+  margin-bottom:30px;
+}
