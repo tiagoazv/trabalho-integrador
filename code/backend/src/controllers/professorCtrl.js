@@ -10,6 +10,19 @@ exports.getProfessor = async (req, res) => {
   }
 };
 
+exports.getProfessorLogin = async (req, res) => {
+  try {
+    const professor = await db.oneOrNone('SELECT senha FROM professor WHERE username = $1', [req.params.username]);
+    if (professor) {
+      res.json(professor);
+    } else {
+      res.status(404).send('Professor não encontrado');
+    }
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
+
 exports.getProfessorById = async (req, res) => {
   try {
     const professor = await db.oneOrNone('SELECT * FROM professor WHERE id = $1', [req.params.id]);

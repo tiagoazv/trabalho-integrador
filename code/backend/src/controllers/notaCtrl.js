@@ -3,7 +3,7 @@ const logger = require('../logger');
 
 exports.getNota = async (req, res) => {
   try {
-    const nota = await db.any('SELECT * FROM nota');
+    const nota = await db.any('SELECT n.id, n.nota, n.qtaulas, n.dataini, n.datafim, a.nome AS aluno, c.nome AS conteudo FROM nota n JOIN aluno a ON n.idaluno = a.id JOIN conteudo c ON n.idconteudo = c.id');
     res.json(nota);
   } catch (error) {
     res.status(500).send(error.message);
@@ -28,8 +28,8 @@ exports.createNota = async (req, res) => {
     const { id, idaluno, idconteudo, nota, qtaulas, dataini, datafim } = req.body;
     logger.info("Create Body: " + JSON.stringify(req.body));
     const newNota = await db.one(
-      'INSERT INTO nota (id, idaluno, idconteudo, nota, qtaulas, dataini, datafim) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
-      [id, idaluno, idconteudo, nota, qtaulas, dataini, datafim]
+      'INSERT INTO nota (idaluno, idconteudo, nota, qtaulas, dataini, datafim) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+      [idaluno, idconteudo, nota, qtaulas, dataini, datafim]
     );
     res.json(newNota);
   } catch (error) {
