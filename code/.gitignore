@@ -13,7 +13,6 @@
 /backend/.pnp
 /backend/.pnp.js
 /backend/app.log
-/backend/src/logger.js
 
 # testing
 /coverage
