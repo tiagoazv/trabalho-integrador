@@ -11,9 +11,8 @@ function Login({ onLogin }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.get(`http://localhost:3000/professor/login/${username}`);
-      const professor = response.data;
-      if (professor && professor.senha === password) {
+      const response = await axios.post(`http://localhost:3000/professor/login/${username}`, { senha: password });
+      if (response.status === 200) {
         onLogin(true);
         navigate('/dashboard');
       } else {
