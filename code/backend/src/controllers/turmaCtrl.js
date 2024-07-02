@@ -3,7 +3,7 @@ const logger = require('../logger');
 
 exports.getTurma = async (req, res) => {
   try {
-    const turma = await db.any('SELECT t.id, t.vagas, p.nome AS professor, c.nome AS conteudo, t.dia FROM turma t JOIN professor p ON t.idprofessor = p.id JOIN conteudo c ON t.idconteudo = c.id ORDER BY t.dia');
+    const turma = await db.any('SELECT t.id, t.vagas, p.nome AS professor, c.nome AS conteudo, t.dia FROM turma t JOIN professor p ON t.idprofessor = p.id JOIN conteudo c ON t.idconteudo = c.id');
     res.json(turma);
   } catch (error) {
     res.status(500).send(error.message);
