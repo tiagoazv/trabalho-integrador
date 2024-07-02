@@ -11,12 +11,15 @@ Trabalho Integrador entre as disciplinas de Engenharia de Software I, Banco de D
 
 No diretório raíz, rode os seguintes comandos:
 
-### `npm install`
+#### `npm install`
 
 Instala as dependencias do backend e do frontend.
 
-### `npm start`
+#### `npm start`
 Monta a build e inicia os servidores
 
 ## Importante!
-Para que o sistema funcione corretamente, você deve ter o Postgres instalado na sua máquina, fazer o login com o seu usuário postgres e importar o arquivo SQL com `\i bd.sql`, que criará o banco e as tabelas necessárias e alguns valores iniciais. Certifique-se de que o arquivo /backend/db.js está com os valores corretos de acordo com seu usuário/senha.
+Para que o sistema funcione corretamente, você deve ter o Postgres instalado na sua máquina, fazer o login com o seu usuário postgres e importar o arquivo SQL com `\i bd.sql`, que criará o banco e as tabelas necessárias e alguns valores iniciais. Certifique-se de que o arquivo /backend/db.js está com os valores corretos de acordo com seu usuário/senha do Postgres. <br>
+Para logar no sistema:<br>
+tiago.azevedo<br>
+    123
